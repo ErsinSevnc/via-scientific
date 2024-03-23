@@ -4,10 +4,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const expressionRoutes = require('./routes/expressions');
+const geneAnalysisRouters = require('./routes/gene-analysis');
 
 app.use(express.json());
 app.use(cors());
 app.use('/expressions', expressionRoutes);
+app.use('/gene-analysis', geneAnalysisRouters);
 
 
 const PORT = process.env.PORT || 8080;
