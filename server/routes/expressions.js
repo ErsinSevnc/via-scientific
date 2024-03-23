@@ -1,10 +1,8 @@
 const express = require('express');
+const {getMatchedGenes} = require('../controllers/gene-expression-controller');
 
 const router = express.Router();
 
-router.post('/', (req, res) => {
- 
-    res.send('hit expressions route');
-});
+router.post('/', getMatchedGenes);
 
 module.exports = router;
