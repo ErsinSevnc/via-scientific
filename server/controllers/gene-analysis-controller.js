@@ -6,7 +6,7 @@ const calculateGeneAnalysis = asyncCatcher(async(req, res) => {
     const matchedGene = await GeneExpresison.findOne({gene})
 
     if (matchedGene) {
-        res.status(200).send(matchedGene)
+        res.status(200).send(matchedGene);
         return;
     }
 
