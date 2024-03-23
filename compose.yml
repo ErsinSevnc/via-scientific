@@ -1,0 +1,36 @@
+services:
+  backend:
+    container_name: via-scientific-backend
+    build:
+      context: ./server
+    depends_on:
+      - gene-database
+    environment:
+      NODE_ENV: production
+      MONGO_URL: mongodb://gene-database:27017/gene
+    ports:
+      - 8080:8080
+    develop:
+      watch:
+        - path: ./app/package.json
+          action: rebuild
+        - path: ./server/server.js
+          action: rebuild
+        - path: ./app
+          target: /usr/src/app
+          action: sync
+
+  frontend:
+    container_name: via-scientific-client
+    build:
+      context: ./client
+    environment:
+      REACT_APP_BACKEND_URL: http://localhost:8080
+    ports:
+      - 3000:3000
+
+
+  gene-database:
+    image: mongo:6
+    ports:
+      - 27017:27017
