@@ -11,7 +11,7 @@ const getMatchedGenes = asyncCatcher(async(req, res) => {
         return;
     }
 
-    res.status(404).send('Genes not found');
+    res.status(404).send({message: 'Genes not found'});
 })
 
 exports.getMatchedGenes = getMatchedGenes;
