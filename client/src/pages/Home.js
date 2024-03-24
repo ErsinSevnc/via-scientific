@@ -42,6 +42,7 @@ const Home = () => {
               style={{
                 background: colorBgContainer,
                 height: 'auto',
+                minHeight: '500px',
                 padding: 24,
                 borderRadius: borderRadiusLG,
               }}

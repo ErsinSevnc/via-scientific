@@ -8,8 +8,9 @@ const containerStyles = {
     flexDirection: 'column',
     flex: 1,
     justifyContent: 'start',
-    height: '100%'
-}
+    height: '100%',
+    width: '100%'
+};
 
 const GeneDisplay = ({ genes }) => {
     const [messageApi, contextHolder] = message.useMessage();
@@ -32,7 +33,6 @@ const GeneDisplay = ({ genes }) => {
     return (
         <div style={containerStyles}>
             {contextHolder}
-            <Space direction="vertical" size="large">
                 <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between' }}>
                     <Select
                         mode="multiple"
@@ -49,7 +49,6 @@ const GeneDisplay = ({ genes }) => {
                 <div style={{ width: '100%' }}>
                     <GeneTable expressionData={expressions} />
                 </div>
-            </Space>
         </div>
     )
 }

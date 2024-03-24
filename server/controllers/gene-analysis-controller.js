@@ -10,7 +10,7 @@ const calculateGeneAnalysis = asyncCatcher(async(req, res) => {
         return;
     }
 
-    res.status(404).send('Gene not found');
+    res.status(404).send({message: 'Gene not found'});
 })
 
 exports.calculateGeneAnalysis = calculateGeneAnalysis;

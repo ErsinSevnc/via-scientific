@@ -30,11 +30,11 @@ const GeneDisplayContainer = () => {
     };
 
     return (
-        <div style={{height: '100%'}}>
+        <div style={containerStyles}>
             {
                 genes.length
                     ? <GeneDisplay genes={genes}/>
-                    : <div stlye={containerStyles}>
+                    : <div style={{display: 'flex', flexDirection: 'columnt', justifyContent: 'center', alignItems: 'center'}}>
                         <Spin size="large"/>
                     </div>
             }
