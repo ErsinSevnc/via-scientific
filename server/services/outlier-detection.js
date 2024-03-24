@@ -1,7 +1,7 @@
 const mathjs = require('mathjs');
 
 //i will decrease the 3 value for the sake of case.
-const DEVIATION_TRESHOLD = 1.5;
+const DEVIATION_TRESHOLD = 0.7;
 
 module.exports = function detectOutliers(gene) {
     const {expressionValues} = gene;

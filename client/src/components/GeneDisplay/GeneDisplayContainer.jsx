@@ -8,13 +8,13 @@ const containerStyles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%'
-}
+};
 
 const GeneDisplayContainer = () => {
     const [genes, setGenes] = useState([]);
 
     useEffect(() => {
-        fetchGenes()
+        fetchGenes();
     }, []);
 
     const fetchGenes = async () => {

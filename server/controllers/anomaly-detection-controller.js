@@ -3,14 +3,19 @@ const GeneExpression = require('../models/GeneExpression');
 const detectOutliers = require('../services/outlier-detection');
 
 const detectAnomaly = asyncCatcher(async(req, res) => {
+    const {genes} = req.body;
+
     try {
-        const genes = await GeneExpression.find({}).select('gene expressionValues');
-        const outliers = {};
-        genes.forEach(gene => {
+        const matchedGenes = await GeneExpression.find({gene: {$in: genes}}).select('gene expressionValues');
+        const outliers = [];
+        matchedGenes.forEach(gene => {
             const outlierExpressionValues = detectOutliers(gene);
 
             if (outlierExpressionValues.length) {
-                outliers[gene.gene] = outlierExpressionValues;
+                outliers.push({
+                    gene: gene.gene,
+                    outlierValues: outlierExpressionValues
+                })
             }
         })
         

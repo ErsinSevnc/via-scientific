@@ -1,6 +1,7 @@
 import { Layout, Menu, theme } from 'antd';
 import { useState } from 'react';
 import GeneDisplayContainer from '../components/GeneDisplay/GeneDisplayContainer';
+import AnomalyDisplayContainer from '../components/AnomalyDisplay/AnomalyDisplayContainer';
 const { Header, Content } = Layout;
 
 const Home = () => {
@@ -50,7 +51,7 @@ const Home = () => {
               {
                 selectedMenu === 'gene' 
                     ? <GeneDisplayContainer /> 
-                    : <span>anomaly</span>
+                    : <AnomalyDisplayContainer />
               }
             </div>
           </Content>

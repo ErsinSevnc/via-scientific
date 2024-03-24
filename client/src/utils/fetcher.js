@@ -36,6 +36,38 @@ const fetchGeneAnalysis = (gene) => {
 
         rej(data.message);
     })
+};
+
+const fetchAnomalies = (genes) => {
+    return new Promise(async(res, rej) => {
+        const response = await fetch(`${baseUrl}/anomaly-detection`, {
+            method: 'POST',
+            body: JSON.stringify({genes}),
+            headers: {'Content-Type': 'application/json'}
+        });
+        
+        const data = await response.json();
+
+        if (response.status === 200) {
+            res(data);
+        };
+
+        rej(data.message);
+    } )
+};
+
+const fetchGenes = () => {
+    return new Promise(async(res, rej) => {
+        const response = await fetch(`${baseUrl}/genes`);
+        const data = await response.json();
+
+
+        if (response.status === 200) {
+            res(data);
+        };
+
+        rej(data.message);
+    })
 }
 
-export {baseUrl, fetchGeneExpressions, fetchGeneAnalysis};
+export {baseUrl, fetchGeneExpressions, fetchGeneAnalysis, fetchAnomalies, fetchGenes};

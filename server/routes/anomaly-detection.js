@@ -3,6 +3,6 @@ const {detectAnomaly} = require('../controllers/anomaly-detection-controller');
 
 const router = express.Router();
 
-router.get('/', detectAnomaly);
+router.post('/', detectAnomaly);
 
 module.exports = router;
