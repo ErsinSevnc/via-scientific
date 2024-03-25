@@ -3,6 +3,15 @@ import { useState } from "react";
 import { fetchAnomalies } from "../../utils/fetcher";
 import AnomalyChart from "./AnomalyChart";
 
+const containerStyles = {
+  display: 'flex',
+  flexDirection: 'column',
+  flex: 1,
+  justifyContent: 'start',
+  height: '100%',
+  width: '100%'
+};
+
 const AnomalyDisplay = ({ data }) => {
   const [messageApi, contextHolder] = message.useMessage();
   const [selectedGenes, setSelectedGenes] = useState([]);
@@ -34,9 +43,9 @@ const AnomalyDisplay = ({ data }) => {
 
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
+    <div style={containerStyles}>
       {contextHolder}
-      <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between' }}>
+      <div style={{ display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'space-between', gap: 6}}>
         <Select
           mode="multiple"
           suffixIcon={suffix}

@@ -68,7 +68,7 @@ const AnomalyChart = ({ outliers }) => {
 
     return (
         <div style={{ display: 'flex', width: '100%' }}>
-            <Line options={options} data={data} />
+            <Line options={options} data={data} height={'250px'}/>
         </div>
     )
 };
