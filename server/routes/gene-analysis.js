@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const {calculateGeneAnalysis} = require('../controllers/gene-analysis-controller')
 
-router.post('/', (req, res) => {
-
-    res.send('hit gene analysis route');
-});
+router.post('/', calculateGeneAnalysis);
 
 module.exports = router;

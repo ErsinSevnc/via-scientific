@@ -14,7 +14,7 @@ services:
       watch:
         - path: ./app/package.json
           action: rebuild
-        - path: ./server/server.js
+        - path: ./server/app.js
           action: rebuild
         - path: ./app
           target: /usr/src/app

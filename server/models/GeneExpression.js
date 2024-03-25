@@ -13,6 +13,18 @@ const GeneExpressionSchema = new Schema({
     sampleNames: {
         type: [String],
         required: true
+    },
+    mean: {
+        type: Number,
+        required: true
+    },
+    median: {
+        type: Number,
+        required: true
+    },
+    variance: {
+        type: Number,
+        required: true
     }
 })
 
